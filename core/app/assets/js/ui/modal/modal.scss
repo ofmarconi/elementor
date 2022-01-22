@@ -99,3 +99,47 @@ $eps-dark-modal-header-background-color: dark-theme-colors(info);
 		border-inline-start: $eps-modal-close-button-border;
 	}
 }
+
+/* Fixing Elementor popup overlay animation - By Marks.art.br */
+/* Just copy and paste into the global CSS on Child Theme or Elementor */
+
+.elementor-popup-modal:not([style="display: none;"]) {
+  transition: all .3s;
+  opacity: 1 !important;
+}
+
+div.elementor-popup-modal[style="display: none;"] {
+  transition: all .3s;
+  opacity: 0;
+  display: flex !important;
+  z-index: -5;
+}
+
+.elementor-popup-modal {
+  &[style="display: none;"] > div {
+    display: none;
+  }
+
+  -webkit-animation: fade-in-by-marks 0.5s cubic-bezier(0.39, 0.575, 0.565, 1);
+  animation: fade-in-by-marks 0.5s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
+@-webkit-keyframes fade-in-by-marks {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-by-marks {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
